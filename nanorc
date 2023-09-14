@@ -1,0 +1,6 @@
+set linenumbers
+set titlecolor white,black
+set numbercolor white,black
+set keycolor cyan,black
+set statuscolor yellow,black
+set tabsize 4
