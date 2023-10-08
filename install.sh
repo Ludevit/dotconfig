@@ -22,7 +22,6 @@ else
 	read -n 1 -s install_input
 	if [ "$install_input" == "y" ]
 	then
-		#TODO check what happends when i delete nano folder
 		echo "installing nanorc..."
 		mkdir -v $pathrc  && cp -v ./nanorc $pathrc/nanorc
 		[ $? == 0 ] && echo -e "${green_color}It's Done. Enjoy your new GNU nano config.${end_color}" || echo -e "${red_color}installing failed at copying files over to $pathrc${end_color}"
