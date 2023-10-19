@@ -1,4 +1,6 @@
-### These are my personal config files on Linux and other UNIX-like systems.
+# These are my personal config files on Linux and other UNIX-like systems.
+
+Install script is written in POSIX /sh so it should be comaptible with all UNIX and UNIX-like systems.
 
 - Changes
 
@@ -8,7 +10,7 @@
 
 To install my config files just pull this repository from github and run this shell script.
 
-```bash
+```shell
 # Run this in directory where install.sh is located
 chmod +x install.sh
 ./install.sh
