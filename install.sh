@@ -38,7 +38,7 @@ case $main_answer in
 		if [ -f $pathrc/nanorc  ]
 		then
 			# Tells user that there alredy is a nanorc in ~/.config/nano
-			echo "${yellow_color}There is already nanorc in your config directory.${end_color}"
+			echo "${red_color}There is already nanorc in your config directory.${end_color}"
 			echo "${yellow_color}Please check: $pathrc ${end_color}"
 		else
 			# If there is no nanorc user has a choise to install nanorc
@@ -54,7 +54,20 @@ case $main_answer in
 		fi
 	;;
 	2)
-		echo "Install VIM confing"
+		if [ -f $pathvimrc/init.lua  ]
+		then
+			echo "${red_color}There is already init.lua in your config directory.${end_color}"
+			echo "${yellow_color}Please check: $pathvimrc ${end_color}"
+		else
+			echo "do you want to install NeoVIM configuration file? [y/N]"
+			read install_input
+			if [ "$install_input" = "y" ]
+			then
+				echo "installing init.lua..."
+				mkdir -v $pathvimrc ; cp -v ./init.lua $pathvimrc/init.lua
+				[ $? = 0 ] && echo "${green_color}It's Done. Enjoy your new NeoVIM config.${end_color}" || echo "${red_color}installing failed at copying files over to $pathrc${end_color}"
+			fi
+		fi
 	;;
 	*) echo "Exiting install script" && exit
 esac
